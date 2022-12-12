@@ -20,18 +20,7 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 - *coming soon*
 
 # Installation
-
-## 1. Download the Script
-- Download the Script from [Github](
-
-## 2. Add the Script to your Server
-- Add the Script to your Server's Resources Folder.
-
-## 3. Add the Script to your Server's Config
-- Add `ensure don-patrols` to your Server's Config.
-
-## 4. Configure the Script
-- Configure the Script to your liking.
+- Drag and Drop the `don-patrols` folder into your `resources` folder.
 
 # Configuration
 
