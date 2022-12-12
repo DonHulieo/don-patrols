@@ -12,7 +12,7 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 - Patrols only start if a Player is within 250 units of the Patrol Area.
 - Patrols Despawn if no Players are within 500 units of the Patrol Area.
 - If a Patrol is Killed or Despawned, it will respawn after a Configurable Cooldown.
-- If a Certain Percentage of the Patrol Members are Killed (default 75%), the Active Patrol will Flee from the Player.
+- If a Certain Percentage of the Patrols are Killed (default 75%), the Active Patrol will Flee from the Player.
 - EMS Workers by Default won't be Attacked!
 - Patrols are Server Synced.
 
@@ -150,6 +150,8 @@ patrols = {
 - `patrols.ped` is the Table of Ped Patrols. Each Patrol is a Table of Patrol Points. Each Patrol Point is a Table of two Vector3s, the first Vector3 is where the ped stands, the second Vector3 is where the ped faces. The ped will wait in this position for the time specified in `stopTime` and then move to the next patrol point. The ped will repeat this until it reaches the last patrol point, then it will move to the first patrol point and repeat the process.
 - `patrols.guard` is the Table of Static Guards. Each Guard is a Vector4, the first three values are the position, the fourth value is the heading.
 - `patrols.veh` is the Table of Vehicle Patrols. Each Patrol is a Table of Patrol Points. Each Patrol Point is a Vector3, this is where the vehicle will drive to. The vehicle will drive to the first patrol point, then the second patrol point, then the third patrol point, etc. The vehicle will repeat this until it reaches the last patrol point, then it will move to the first patrol point and repeat the process.
+
+**Note:** The Vehicle Patrols need careful planning and testing. I recommend testing vehicle routes before using them on a live server as the pathing relies on the AI of the vehicles and they can get stuck in some situations. For example, originally Madrazo's Ranch had a vehicle patrol going around the outside of the ranch, but the vehicle would get stuck on the fence and not move, or randomly veer off the road. After extensive testing I noticed that none of the Native AI pathed here, leading me to assume that the AI Pathing Nodes here are broken. I have since removed the vehicle patrol from Madrazo's Ranch.
 
 #### 1.4 Ped Settings
 ```lua
