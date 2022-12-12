@@ -31,7 +31,7 @@ Config.DeathPercent = 75
 Config.ResetsOnDeath = false 
 ```
 
-- `Config.Cooldown` is the Cooldown for the Active Patrol to respawn after it's been killed or despawned. 
+- `Config.Cooldown` is the Cooldown (in minutes) for the Active Patrol to respawn after it's been killed or despawned. 
 - `Config.DeathPercent` is the Percentage of the Active Patrol members that need to be killed before the Peds flee from the Player.
 - `Config.ResetsOnDeath` if true, Killing the Above Amount of Peds, will Reset the Current Patrol and negates the Cooldown Timer
 
