@@ -12,7 +12,7 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 - Patrols only start if a Player is within 250 units of the Patrol Area.
 - Patrols Despawn if no Players are within 500 units of the Patrol Area.
 - If a Patrol is Killed or Despawned, it will respawn after a Configurable Cooldown.
-- If a Certain Percentage of the Patrols are Killed (default 75%), the Active Patrol will Flee from the Player.
+- If a Certain Percentage of the Patrol Members are Killed (default 75%), the Active Patrol will Flee from the Player.
 - EMS Workers by Default won't be Attacked!
 - Patrols are Server Synced.
 
