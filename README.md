@@ -69,7 +69,7 @@ Config.AuthorizedJobs =
 
 - `Config.AuthorizedJobs.LEO` is the Table for the Police Jobs, you can add more jobs to the `Jobs` Table.
 - `Config.AuthorizedJobs.EMS` is the Table for the EMS Jobs, you can add more jobs to the `Jobs` Table.
-- `Config.AuthorizedJobs.FirstResponder` is the Table for the Combined Police and EMS Jobs, don't touch this.
+- `Config.AuthorizedJobs.FirstResponder` is the Table for the Combined Police and EMS Jobs, **DO NOT TOUCH THIS!**.
 
 ## Adding Patrol Areas
 
