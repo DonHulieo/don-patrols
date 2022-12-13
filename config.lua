@@ -3,6 +3,8 @@ Config = {}
 Config.Cooldown = 60 -- In minutes // Cooldown for the active patrol to respawn after it's been spawned
 Config.DeathPercent = 75 -- Percentage of patrol members that can die before the patrol is removed // 75 = 75% of the patrol members can die before the patrol is removed
 Config.ResetsOnDeath = false -- Set true if you want the patrol to respawn after it's been removed due to deaths rather than waiting for the cooldown
+Config.SpawnDistance = 250.0 -- Distance from any patrol point to spawn the patrol // 250 = 250 meters from any patrol point
+Config.DespawnDistance = 500.0 -- Distance to despawn patrols // If no Player is within 500 = 500 meters of any patrol ped, the patrol will despawn
 
 --------------------------- ADD YOUR RELEVANT EMS JOBS HERE // DO NOT TOUCH THE FIRST RESPONDER SECTION ---------------------------
 local QBCore = exports['qb-core']:GetCoreObject()
