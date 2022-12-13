@@ -29,8 +29,8 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 Config.Cooldown = 60
 Config.DeathPercent = 75 
 Config.ResetsOnDeath = false
-Config.SpawnDistance = 250.0 -- Distance from any patrol point to spawn the patrol // 250 = 250 meters from any patrol point
-Config.DespawnDistance = 500.0 -- Distance to despawn patrols // If no Player is within 500 = 500 meters of any patrol ped, the patrol will despawn 
+Config.SpawnDistance = 250.0
+Config.DespawnDistance = 500.0
 ```
 
 - `Config.Cooldown` is the Cooldown (in minutes) for the Active Patrol to respawn after it's been killed or despawned. 
