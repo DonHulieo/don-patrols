@@ -1,10 +1,13 @@
 # don-patrols
+
 Configurable Ped Patrols for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5419769).
 
-# Dependencies
+## Dependencies
+
 - [qb-core](https://github.com/qbcore-framework/qb-core)
 
-# Features
+## Features
+
 - Optimised code, resmon of 0.0ms.
 - Configure Different Areas of Patrol
 - 5 Locations Pre-Configured // Add as many as you want!
@@ -16,15 +19,18 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 - EMS Workers by Default won't be Attacked!
 - Patrols are Server Synced.
 
-# Preview
+## Preview
+
 - *coming soon*
 
-# Installation
+## Installation
+
 - Drag and Drop the `don-patrols` folder into your `resources` folder.
 
-# Configuration
+## Configuration
 
-## Globals
+### Globals
+
 ```lua
 Config.Cooldown = 60
 Config.DeathPercent = 75 
@@ -33,13 +39,14 @@ Config.SpawnDistance = 250.0
 Config.DespawnDistance = 500.0
 ```
 
-- `Config.Cooldown` is the Cooldown (in minutes) for the Active Patrol to respawn after it's been killed or despawned. 
+- `Config.Cooldown` is the Cooldown (in minutes) for the Active Patrol to respawn after it's been killed or despawned.
 - `Config.DeathPercent` is the Percentage of the Active Patrol members that need to be killed before the Peds flee from the Player.
 - `Config.ResetsOnDeath` if true, Killing the Above Amount of Peds, will Reset the Current Patrol and negates the Cooldown Timer.
 - `Config.SpawnDistance` the Distance from a Patrol Point the Player needs to be within to trigger the Patrol.
 - `Config.DespawnDistance` the Distance that if no Players are within, the patrol will Despawn.
 
-## Adding Emergency Service Jobs
+### Adding Emergency Service Jobs
+
 ```lua
 Config.AuthorizedJobs = 
 {
@@ -75,12 +82,14 @@ Config.AuthorizedJobs =
 - `Config.AuthorizedJobs.EMS` is the Table for the EMS Jobs, you can add more jobs to the `Jobs` Table.
 - `Config.AuthorizedJobs.FirstResponder` is the Table for the Combined Police and EMS Jobs, **DO NOT TOUCH THIS!**.
 
-## Adding Patrol Areas
+### Adding Patrol Areas
 
-### 1. Adding a Patrol Area
+#### 1. Adding a Patrol Area
+
 - To add a Patrol Area, you need to add a new Table to the `Config.Locations` Table.
 
-#### 1.1 Name and Constants
+##### 1.1 Name and Constants
+
 ```lua
 name = 'Cayo_Perico_1',
 activePatrols = true, 
@@ -91,9 +100,10 @@ activeVehicles = true,
 - `name` is the Name of the Patrol Area, make sure it's unique and doesn't have any spaces (i.e. Grapeseed_Weed_Farm, Humane_Labs, etc.).
 - `activePatrols` is a boolean value, if true, Walking Patrols will be active for this location.
 - `activeGuards` is a boolean value, if true, Static Guards will be active for this location.
-- `activeVehicles` is a boolean value, if true, Driving Patrols will be active for this location. 
+- `activeVehicles` is a boolean value, if true, Driving Patrols will be active for this location.
 
-#### 1.2 Models
+##### 1.2 Models
+
 ```lua
 models = {
     peds = { 
@@ -110,7 +120,8 @@ models = {
 - `models.peds` is the Table of Ped Models to use for the Patrols and Static Guards. Peds are randomly selected from this table, so you can add as many as you want, but make sure they're valid.
 - `models.vehs` is the Table of Vehicle Models to use for the Patrols. Vehicles are selected in order, so the first vehicle patrols the first veh patrol route, the second vehicle patrols the second veh patrol route, etc.
 
-#### 1.3 Patrol Routes
+##### 1.3 Patrol Routes
+
 ```lua
 stopTime = {10000, 15000},  
 patrols = {
@@ -157,14 +168,16 @@ patrols = {
 
 **Note:** The Vehicle Patrols need careful planning and testing. I recommend testing vehicle routes before using them on a live server as the pathing relies on the AI of the vehicles and they can get stuck in some situations. For example, originally Madrazo's Ranch had a vehicle patrol going around the outside of the ranch, but the vehicle would get stuck on the fence and not move, or randomly veer off the road. After extensive testing I noticed that none of the Native AI pathed here, leading me to assume that the AI Pathing Nodes here are broken. When first creating a route, start with a 4 point loop and test it. If it works, add more points. If it doesn't work, remove points until it does. If it still doesn't work, try a different route.
 
-#### 1.4 Ped Settings
+##### 1.4 Ped Settings
+
 ```lua
 pedSettings = {
     blips = true, 
     health = 250, 
     armour = 0, 
     footsteps = 'quiet', 
-    relationship = 4, 
+    relationship = 4,
+    relNameOverride = 'Cayo_Perico', 
     weapons = { 
         `WEAPON_BAT`,
         `WEAPON_BOTTLE`,
@@ -186,14 +199,18 @@ pedSettings = {
     },
 },
 ```
-##### 1.4.1 Main Settings
+
+###### 1.4.1 Main Settings
+
 - `pedSettings.blips` is whether to show blips for the peds.
 - `pedSettings.health` is the health of the peds.
 - `pedSettings.armour` is the armour of the peds.
 - `pedSettings.footsteps` is the footstep sounds of the peds. Set to `'loud'` for loud footstep sounds, set to `'quiet'` for quiet footstep sounds, set to `false` for no footstep sounds.
 - `pedSettings.relationship` is the relationship group of the peds. Set to `0` for Companion, set to `1` for Respect, set to `2` for Like, set to `3` for Neutral, set to `4` for Dislike, set to `5` for Hate. By deault, the relationships are either 4 (Dislike) or 5 (Hate), so they peds will either shoot when aggravated or shoot on sight respectively.
+- `pedSettings.relNameOverride` is the name of the relationship group. Set to `false` to not override the name. This is useful if you want to use the same relationship group for multiple areas, i.e Cayo Perico.
 
-##### 1.4.2 Combat Settings
+###### 1.4.2 Combat Settings
+
 - `pedSettings.weapons` is the weapons to give the peds. Set to `false` to not give a weapon. The weapons are given randomly from the table, by having `WEAPON_UNARMED`, there's a chance for the ped to not have a weapon. The weapons are hashes, you can find the hashes [here](https://wiki.rage.mp/index.php?title=Weapons).
 - `pedSettings.combat.ability` is the combat ability of the peds. Set to a number between `50` and `100`. Anything below `50` will make the peds flee, no matter the relationship.
 - `pedSettings.combat.accuracy` is the accuracy of the peds. Set to a number between `0` and `100`.
@@ -201,17 +218,25 @@ pedSettings = {
 - `pedSettings.combat.range` is the combat range of the peds (the range at which attacking another patrol member is considered a threat). Set to `0` for near, set to `1` for normal, set to `2` for far.
 - `pedSettings.combat.movement` is how the ped paths during combat. Set to `0` for stationary (won't react), set to `1` for defensive (ped will find cover and blind fire), set to `2` for offensive (ped will rush the enemy, but still look for cover), set to `3` for suicidal (THIS IS SPARTA).
 
-##### 1.4.3 Pathing Settings
+###### 1.4.3 Pathing Settings
+
 *Note: These settings are to help contain the peds in certain areas, i.e. the top of a water tower. If you want the peds to be able to path freely, set all of these to `true`.*
+
 - `pedSettings.pathing.avoidFire` is whether the peds avoid fire.
 - `pedSettings.pathing.climbOver` is whether the peds can climb over objects.
 - `pedSettings.pathing.useLadders` is whether the peds can use ladders.
 - `pedSettings.pathing.avoidWater` is whether the peds avoid water.
 - `pedSettings.pathing.dropFromHeight` is whether the peds can drop from height.
 
-# Support
-- Join my [discord](https://discord.gg/tVA58nbBuk) and use the relative support channels. 
+## Support
+
+- Join my [discord](https://discord.gg/tVA58nbBuk) and use the relative support channels.
 - Open a ticket and please have your Tebex Transation ID ready 🙂.
 
-# Changelog
+## Changelog
+
+- v1.0.4 - Linting and General Fixes.
+- v1.0.3 - Added Fail Safes' for Drivers Despawning when a Player is too far away.
+- v1.0.2 - Added `pedSettings.relNameOverride` and Vehicle Patrols will now chase down the player if they are in a vehicle.
+- v1.0.1 - Added Config Options for Distance Checks.
 - v1.0.0 - Initial Release
