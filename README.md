@@ -1,6 +1,6 @@
 # don-patrols
 
-Configurable Ped Patrols for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5419769).
+Configurable Ped Patrols for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5466392).
 
 ## Dependencies
 
