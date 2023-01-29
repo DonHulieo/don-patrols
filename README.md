@@ -13,10 +13,8 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 - 5 Locations Pre-Configured // Add as many as you want!
 - Choose Between 3 Patrol/Guard Types, Walking, Driving and Static.
 - Patrols only start if a Player is within 250 units of the Patrol Area.
-- Patrols Despawn if no Players are within 500 units of the Patrol Area.
 - If a Patrol is Killed or Despawned, it will respawn after a Configurable Cooldown.
 - If a Certain Percentage of the Patrols are Killed (default 75%), the Active Patrol will Flee from the Player.
-- EMS Workers by Default won't be Attacked!
 - Patrols are Server Synced.
 
 ## Preview
@@ -32,18 +30,18 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 ### Globals
 
 ```lua
-Config.Cooldown = 60
-Config.DeathPercent = 75 
+Config.Cooldown = 30
+Config.DeathPercent = 80 
 Config.ResetsOnDeath = false
-Config.SpawnDistance = 250.0
-Config.DespawnDistance = 500.0
+Config.SpawnDistance = 500.0
+Config.DespawnDistance = 1000.0
 ```
 
 - `Config.Cooldown` is the Cooldown (in minutes) for the Active Patrol to respawn after it's been killed or despawned.
 - `Config.DeathPercent` is the Percentage of the Active Patrol members that need to be killed before the Peds flee from the Player.
 - `Config.ResetsOnDeath` if true, Killing the Above Amount of Peds, will Reset the Current Patrol and negates the Cooldown Timer.
 - `Config.SpawnDistance` the Distance from a Patrol Point the Player needs to be within to trigger the Patrol.
-- `Config.DespawnDistance` the Distance that if no Players are within, the patrol will Despawn.
+- `Config.DespawnDistance` the Distance from a Patrol Point no Player can be within to delete the Patrol.
 
 ### Adding Emergency Service Jobs
 
@@ -235,6 +233,13 @@ pedSettings = {
 
 ## Changelog
 
+- v1.1.1 - Added a table of Threads to handle Vehicle Patrols whilst having multiple clients nearby. This should fix drivers staying in the same place when the network owner leaves the area.
+- v1.1.0 - Proper Syncing between Clients, Ensuring Vehicle Patrols stay Tasked when players leave area and Optimised Functionality for Checking for Closest Players.
+- v1.0.9 - New Function for Finding Closest Player, and Added an Event to Retask a Patrol after changing Owners.
+- v1.0.8 - Added a failsafe for when a player leaves the area but other players are nearby.
+- v1.0.7 - More Failsafes for Vehicle Patrols.
+- v1.0.6 - More Debug Prints, attempted Fixes of Patrols Duplicating.
+- v1.0.5 - Added Debug Mode and Fixed a bug where Driver Peds wouldn't attack a Players Friends.
 - v1.0.4 - Linting and General Fixes.
 - v1.0.3 - Added Fail Safes' for Drivers Despawning when a Player is too far away.
 - v1.0.2 - Added `pedSettings.relNameOverride` and Vehicle Patrols will now chase down the player if they are in a vehicle.

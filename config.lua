@@ -1,10 +1,12 @@
 Config = {}
 
-Config.Cooldown = 60 -- In minutes // Cooldown for the active patrol to respawn after it's been spawned
-Config.DeathPercent = 75 -- Percentage of patrol members that can die before the patrol is removed // 75 = 75% of the patrol members can die before the patrol is removed
-Config.ResetsOnDeath = false -- Set true if you want the patrol to respawn after it's been removed due to deaths rather than waiting for the cooldown
-Config.SpawnDistance = 250.0 -- Distance from any patrol point to spawn the patrol // 250 = 250 meters from any patrol point
-Config.DespawnDistance = 500.0 -- Distance to despawn patrols // If no Player is within 500 = 500 meters of any patrol ped, the patrol will despawn
+Config.DebugMode = true -- Set true if you want to see debug messages in the console
+
+Config.Cooldown = 5 -- In minutes // Cooldown for the active patrol to respawn after it's been spawned
+Config.DeathPercent = 80 -- Percentage of patrol members that can die before the patrol is removed // 75 = 75% of the patrol members can die before the patrol is removed
+Config.ResetsOnDeath = true -- Set true if you want the patrol to respawn after it's been removed due to deaths rather than waiting for the cooldown
+Config.SpawnDistance = 500.0 -- Distance from any patrol point to spawn the patrol // 250 = 250 meters from any patrol point
+Config.DespawnDistance = 2000.0 -- Distance from any patrol point to despawn the patrol // 500 = 500 meters from any patrol point
 
 --------------------------- ADD YOUR RELEVANT EMS JOBS HERE // DO NOT TOUCH THE FIRST RESPONDER SECTION ---------------------------
 local QBCore = exports['qb-core']:GetCoreObject()
@@ -75,6 +77,7 @@ Config.Locations = {
             armour = 0, -- Armour of the ped // 0-100
             footsteps = 'quiet', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 4, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
+            relNameOverride = false, -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
             weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
                 `WEAPON_BAT`,
                 `WEAPON_BOTTLE`,
@@ -203,6 +206,7 @@ Config.Locations = {
             armour = 50, -- Armour of the ped // 0-100
             footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
+            relNameOverride = false, -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
             weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
                 `WEAPON_PISTOL`,
                 `WEAPON_PUMPSHOTGUN`,
@@ -271,6 +275,7 @@ Config.Locations = {
             armour = 50, -- Armour of the ped // 0-100
             footsteps = 'quiet', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
+            relNameOverride = false, -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
             weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
                 `WEAPON_BAT`,
                 `WEAPON_HATCHET`,
@@ -341,7 +346,181 @@ Config.Locations = {
                     [3] = vector3(5038.37, -4548.1, 7.71),
                     [4] = vector3(5021.44, -4603.49, 4.49),
                     [5] = vector3(5088.23, -4615.6, 2.53),
-                }
+                },
+            }
+        },
+        pedSettings = {
+            blips = true, -- Show blips for the peds
+            health = 250, -- Health of the ped // 200 is default civillian health
+            armour = 50, -- Armour of the ped // 0-100
+            footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
+            relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
+            relNameOverride = 'Cayo_Perico', -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
+            weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
+                `WEAPON_BAT`,
+                `WEAPON_HATCHET`,
+                `WEAPON_PUMPSHOTGUN`,
+                `WEAPON_PISTOL`,
+            }, 
+            combat = {
+                ability = 80, -- Combat ability of the ped // 50-100
+                accuracy = 75, -- Accuracy of the ped // 0-100
+                alertness = 3, -- Alertness of the ped // 0-3 (0 = calm, 3 = paranoid)
+                range = 2, -- Combat range of the ped // 0-2 (0 = near, 2 = far)
+                movement = 3, -- Combat movement of the ped // 0-3 (0 = stand, 1 = defensive, 2 = offensive, 3 = suicidal)
+            },
+            pathing = { -- How the ped will path during combat
+                avoidFire = true, -- Whether the ped avoids fire // true or false
+                climbOver = true, -- Whether the ped can climb over objects // true or false
+                useLadders = true, -- Whether the ped can use ladders // true or false
+                avoidWater = true, -- Whether the ped avoids water // true or false
+                dropFromHeight = true, --  Whether the ped can drop from height // true or false
+            },
+        },
+    },
+    [6] = { -- Cayo Perico // 2nd Town
+        name = 'Cayo_Perico_2', -- Name of the location // Make sure it's unique and doesn't have any spaces (i.e. Grapeseed_Weed_Farm, Humane_Labs, etc.)
+        activePatrols = true, -- Set true if you want patrols for this location
+        activeGuards = true, -- Set true if you want guards for this location
+        activeVehicles = true, -- Set true if you want vehicles for this location
+        models = { -- Models to use for the patrols (peds are randomly selected) // Vehicles are selected in order, i.e. the first vehicle patrols the first veh patrol route.
+            peds = { -- https://docs.fivem.net/docs/game-references/ped-models/
+                `g_m_y_salvaboss_01`,
+                `g_m_y_salvagoon_01`,
+                `g_m_y_salvagoon_02`,
+                `g_m_y_salvagoon_03`,
+            },
+            vehs = { -- https://docs.fivem.net/docs/game-references/vehicle-models/
+                `hellion`,
+                `enduro`,
+            },
+        },
+        stopTime = {10000, 15000}, -- Time to wait at each patrol point (in milliseconds) // Randomly selected between the two numbers
+        patrols = { -- Patrol points
+            ped = { -- Ped patrols from 1 to 2, 2 to 3, 3 to 4 and back to 1, etc. // Add as many patrols and points as you want
+                [1] = {
+                    [1] = {vector3(5117.5, -5200.98, 2.47), vector3(5114.92, -5200.79, 2.35)},
+                    [2] = {vector3(5108.47, -5203.72, 2.1), vector3(5107.23, -5203.67, 2.06)},
+                    [3] = {vector3(5107.84, -5140.0, 1.93), vector3(5107.82, -5137.54, 1.93)},
+                    [4] = {vector3(5117.0, -5139.97, 2.18), vector3(5115.88, -5140.01, 2.18)},
+                },
+                [2] = {
+                    [1] = {vector3(5131.62, -5114.9, 2.12), vector3(5132.12, -5114.11, 2.12)},
+                    [2] = {vector3(5131.37, -5141.18, 2.15), vector3(5129.0, -5142.26, 2.19)},
+                    [3] = {vector3(5158.42, -5140.04, 2.36), vector3(5160.33, -5139.98, 2.41)},
+                    [4] = {vector3(5179.68, -5124.82, 3.1), vector3(5178.7, -5122.1, 3.09)},
+                    [5] = {vector3(5207.06, -5126.22, 6.01), vector3(5208.89, -5126.29, 6.15)},
+                    [6] = {vector3(5208.57, -5120.81, 5.98), vector3(5208.31, -5118.88, 5.87)},
+                },
+            },
+            guard = { -- Guards // Static peds, Coords are Vector4 and not Vector3, the 4th value is the heading
+                [1] = vector4(5150.55, -4933.18, 30.87, 87.25),
+                [2] = vector4(5154.85, -4948.08, 14.1, 72.32),
+                [3] = vector4(5146.26, -5053.22, 20.39, 91.02),
+                [4] = vector4(5141.18, -5241.58, 26.29, 322.47),
+                [5] = vector4(5467.76, -5235.29, 43.96, 292.5),
+            },
+            veh = { -- Vehicle patrols from 1 to 2, 2 to 3, 3 to 4 and back to 1, etc. // Add as many patrols and points as you want
+                [1] = {
+                    [1] = vector3(5256.4, -5164.84, 13.39),
+                    [2] = vector3(5261.38, -5076.15, 14.24),
+                    [3] = vector3(5144.89, -5000.15, 9.81),
+                    [4] = vector3(5133.92, -5108.77, 1.77),
+                    [5] = vector3(5113.35, -5187.83, 1.95),
+                    [6] = vector3(5165.58, -5179.8, 1.62),
+                    [7] = vector3(5229.26, -5131.16, 7.87),
+                },
+                [2] = {
+                    [1] = vector3(5435.77, -5380.59, 35.91),
+                    [2] = vector3(5527.6, -5286.79, 11.97),
+                    [3] = vector3(5343.52, -5106.55, 14.17),
+                    [4] = vector3(5228.02, -5217.84, 16.61),
+                    [5] = vector3(5308.03, -5263.38, 32.06),
+                    [6] = vector3(5461.09, -5228.81, 26.71),
+                    [7] = vector3(5402.65, -5186.94, 31.33),
+                    [8] = vector3(5323.21, -5192.19, 31.02),
+                    [9] = vector3(5291.98, -5220.34, 31.21),
+                },
+            }
+        },
+        pedSettings = {
+            blips = true, -- Show blips for the peds
+            health = 250, -- Health of the ped // 200 is default civillian health
+            armour = 50, -- Armour of the ped // 0-100
+            footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
+            relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
+            relNameOverride = 'Cayo_Perico', -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
+            weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
+                `WEAPON_ASSAULTRIFLE`,
+                `WEAPON_MACHINEPISTOL`,
+                `WEAPON_PUMPSHOTGUN`,
+                `WEAPON_PISTOL`,
+            }, 
+            combat = {
+                ability = 80, -- Combat ability of the ped // 50-100
+                accuracy = 75, -- Accuracy of the ped // 0-100
+                alertness = 3, -- Alertness of the ped // 0-3 (0 = calm, 3 = paranoid)
+                range = 2, -- Combat range of the ped // 0-2 (0 = near, 2 = far)
+                movement = 3, -- Combat movement of the ped // 0-3 (0 = stand, 1 = defensive, 2 = offensive, 3 = suicidal)
+            },
+            pathing = { -- How the ped will path during combat
+                avoidFire = true, -- Whether the ped avoids fire // true or false
+                climbOver = true, -- Whether the ped can climb over objects // true or false
+                useLadders = true, -- Whether the ped can use ladders // true or false
+                avoidWater = true, -- Whether the ped avoids water // true or false
+                dropFromHeight = true, --  Whether the ped can drop from height // true or false
+            },
+        },
+    },
+    [7] = { -- Cayo Perico // 3rd Town
+        name = 'Cayo_Perico_3', -- Name of the location // Make sure it's unique and doesn't have any spaces (i.e. Grapeseed_Weed_Farm, Humane_Labs, etc.)
+        activePatrols = true, -- Set true if you want patrols for this location
+        activeGuards = true, -- Set true if you want guards for this location
+        activeVehicles = true, -- Set true if you want vehicles for this location
+        models = { -- Models to use for the patrols (peds are randomly selected) // Vehicles are selected in order, i.e. the first vehicle patrols the first veh patrol route.
+            peds = { -- https://docs.fivem.net/docs/game-references/ped-models/
+                `g_m_y_salvaboss_01`,
+                `g_m_y_salvagoon_01`,
+                `g_m_y_salvagoon_02`,
+                `g_m_y_salvagoon_03`,
+            },
+            vehs = { -- https://docs.fivem.net/docs/game-references/vehicle-models/
+                `rebel`,
+            },
+        },
+        stopTime = {10000, 15000}, -- Time to wait at each patrol point (in milliseconds) // Randomly selected between the two numbers
+        patrols = { -- Patrol points
+            ped = { -- Ped patrols from 1 to 2, 2 to 3, 3 to 4 and back to 1, etc. // Add as many patrols and points as you want
+                [1] = {
+                    [1] = {vector3(4881.37, -5171.52, 2.45), vector3(4881.63, -5171.0, 2.46)},
+                    [2] = {vector3(4909.42, -5184.0, 2.45), vector3(4909.67, -5183.51, 2.45)},
+                    [3] = {vector3(4931.26, -5175.02, 2.46), vector3(4929.48, -5174.2, 2.48)},
+                    [4] = {vector3(4943.2, -5167.83, 2.47), vector3(4943.95, -5166.19, 2.45)},
+                },
+                [2] = {
+                    [1] = {vector3(4931.39, -5146.33, 2.47), vector3(4930.32, -5145.84, 2.46)},
+                    [2] = {vector3(5002.52, -5145.01, 2.57), vector3(5004.18, -5144.12, 2.57)},
+                    [3] = {vector3(5038.7, -5108.5, 5.82), vector3(5041.31, -5105.95, 5.63)},
+                    [4] = {vector3(5011.6, -5077.94, 4.69), vector3(5011.68, -5076.06, 4.42)},
+                    [5] = {vector3(4970.46, -5117.84, 2.96), vector3(4968.95, -5118.79, 2.76)},
+                },
+            },
+            guard = { -- Guards // Static peds, Coords are Vector4 and not Vector3, the 4th value is the heading
+                [1] = vector4(5040.88, -5112.46, 22.94, 94.47),
+                [2] = vector4(4905.36, -5332.19, 29.14, 335.28),
+            },
+            veh = { -- Vehicle patrols from 1 to 2, 2 to 3, 3 to 4 and back to 1, etc. // Add as many patrols and points as you want
+                [1] = {
+                    [1] = vector3(4954.94, -5212.07, 1.99),
+                    [2] = vector3(5010.65, -5182.9, 1.99),
+                    [3] = vector3(5021.63, -5147.18, 2.12),
+                    [4] = vector3(4992.36, -5164.94, 2.14),
+                    [5] = vector3(4965.49, -5189.85, 1.99),
+                    [6] = vector3(4867.1, -5174.46, 1.92),
+                    [7] = vector3(4941.68, -5271.51, 3.45),
+                    [8] = vector3(4879.65, -5379.14, 13.64),
+                    [9] = vector3(4889.0, -5412.68, 16.49),
+                },
             }
         },
         pedSettings = {
@@ -350,9 +529,10 @@ Config.Locations = {
             armour = 50, -- Armour of the ped // 0-100
             footsteps = 'quiet', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
+            relNameOverride = 'Cayo_Perico', -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
             weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
-                `WEAPON_BAT`,
-                `WEAPON_HATCHET`,
+                `WEAPON_ASSAULTRIFLE`,
+                `WEAPON_MACHINEPISTOL`,
                 `WEAPON_PUMPSHOTGUN`,
                 `WEAPON_PISTOL`,
             }, 
