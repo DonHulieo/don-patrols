@@ -19,7 +19,7 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 
 ## Preview
 
-- *coming soon*
+- https://www.youtube.com/watch?v=3FX-CfZ_oo8&t=3s
 
 ## Installation
 
