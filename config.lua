@@ -75,6 +75,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 250, -- Health of the ped // 200 is default civillian health // 350 means things get a bit more interesting
             armour = 0, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits // true or false
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured // true or false
             footsteps = 'quiet', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 4, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             relNameOverride = false, -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
@@ -96,6 +98,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },
@@ -141,6 +144,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 350, -- Health of the ped // 200 is default civillian health
             armour = 100, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured
             footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 4, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             weapons = { -- Weapon to give the ped // Set to false to not give a weapon // https://wiki.rage.mp/index.php?title=Weapons
@@ -160,6 +165,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },
@@ -204,6 +210,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 300, -- Health of the ped // 200 is default civillian health
             armour = 50, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured
             footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             relNameOverride = false, -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
@@ -225,6 +233,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },
@@ -273,6 +282,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 250, -- Health of the ped // 200 is default civillian health
             armour = 50, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured
             footsteps = 'quiet', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             relNameOverride = false, -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
@@ -295,6 +306,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },
@@ -353,6 +365,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 250, -- Health of the ped // 200 is default civillian health
             armour = 50, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured
             footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             relNameOverride = 'Cayo_Perico', -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
@@ -375,6 +389,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },
@@ -447,6 +462,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 250, -- Health of the ped // 200 is default civillian health
             armour = 50, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured
             footsteps = 'loud', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             relNameOverride = 'Cayo_Perico', -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
@@ -469,6 +486,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },
@@ -527,6 +545,8 @@ Config.Locations = {
             blips = true, -- Show blips for the peds
             health = 250, -- Health of the ped // 200 is default civillian health
             armour = 50, -- Armour of the ped // 0-100
+            suffersCrits = true, -- Set to true if you want the ped to suffer critical hits
+            diesWhenInjured = false, -- Set to true if you want the ped to die when injured
             footsteps = 'quiet', -- Footstep sounds // 'loud' or 'quiet' or false
             relationship = 5, -- Relationship group of the ped // 0-5 // 0 = Companion, 1 = Respect, 2 = Like, 3 = Neutral, 4 = Dislike, 5 = Hate
             relNameOverride = 'Cayo_Perico', -- Set to false to use the default relationship name (the location name) // Set to a string to use a custom relationship name, useful if you want multiple locations to have the same relationship
@@ -549,6 +569,7 @@ Config.Locations = {
                 useLadders = true, -- Whether the ped can use ladders // true or false
                 avoidWater = true, -- Whether the ped avoids water // true or false
                 dropFromHeight = true, --  Whether the ped can drop from height // true or false
+                canRagdoll = true, -- Whether the ped can ragdoll // true or false
             },
         },
     },

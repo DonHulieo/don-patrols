@@ -1,6 +1,6 @@
 # don-patrols
 
-Configurable Ped Patrols for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5466392).
+Configurable Ped Patrols for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5419769).
 
 ## Dependencies
 
@@ -19,7 +19,7 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 
 ## Preview
 
-- https://www.youtube.com/watch?v=3FX-CfZ_oo8&t=3s
+- *coming soon*
 
 ## Installation
 
@@ -172,7 +172,9 @@ patrols = {
 pedSettings = {
     blips = true, 
     health = 250, 
-    armour = 0, 
+    armour = 0,
+    suffersCrits = false,
+    diesWhenInjured = false, 
     footsteps = 'quiet', 
     relationship = 4,
     relNameOverride = 'Cayo_Perico', 
@@ -194,6 +196,7 @@ pedSettings = {
         useLadders = true, 
         avoidWater = true, 
         dropFromHeight = true,
+        canRagdoll = true,
     },
 },
 ```
@@ -203,6 +206,8 @@ pedSettings = {
 - `pedSettings.blips` is whether to show blips for the peds.
 - `pedSettings.health` is the health of the peds.
 - `pedSettings.armour` is the armour of the peds.
+- `pedSettings.suffersCrits` is whether the peds can suffer critical hits.
+- `pedSettings.diesWhenInjured` is whether the peds die when in the injured down state.
 - `pedSettings.footsteps` is the footstep sounds of the peds. Set to `'loud'` for loud footstep sounds, set to `'quiet'` for quiet footstep sounds, set to `false` for no footstep sounds.
 - `pedSettings.relationship` is the relationship group of the peds. Set to `0` for Companion, set to `1` for Respect, set to `2` for Like, set to `3` for Neutral, set to `4` for Dislike, set to `5` for Hate. By deault, the relationships are either 4 (Dislike) or 5 (Hate), so they peds will either shoot when aggravated or shoot on sight respectively.
 - `pedSettings.relNameOverride` is the name of the relationship group. Set to `false` to not override the name. This is useful if you want to use the same relationship group for multiple areas, i.e Cayo Perico.
@@ -225,6 +230,7 @@ pedSettings = {
 - `pedSettings.pathing.useLadders` is whether the peds can use ladders.
 - `pedSettings.pathing.avoidWater` is whether the peds avoid water.
 - `pedSettings.pathing.dropFromHeight` is whether the peds can drop from height.
+- `pedSettings.pathing.canRagdoll` is whether the peds can ragdoll from impacts.
 
 ## Support
 
@@ -233,6 +239,8 @@ pedSettings = {
 
 ## Changelog
 
+- v1.1.3 - Added New Config Options `pedSettings.suffersCrits`, `pedSettings.diesWhenInjured` and `pedSettings.pathing.canRagdoll`. Small Code Cleanup.
+- v1.1.2 - Fixed an error on the server where the Ped didn't exist and had it's coords checked.
 - v1.1.1 - Added a table of Threads to handle Vehicle Patrols whilst having multiple clients nearby. This should fix drivers staying in the same place when the network owner leaves the area.
 - v1.1.0 - Proper Syncing between Clients, Ensuring Vehicle Patrols stay Tasked when players leave area and Optimised Functionality for Checking for Closest Players.
 - v1.0.9 - New Function for Finding Closest Player, and Added an Event to Retask a Patrol after changing Owners.
