@@ -30,12 +30,16 @@ Configurable Ped Patrols for QBCore! This is a paid script, available on my [Teb
 ### Globals
 
 ```lua
+Config.Framework = 'qb' 
+
 Config.Cooldown = 30
 Config.DeathPercent = 80 
 Config.ResetsOnDeath = false
 Config.SpawnDistance = 500.0
 Config.DespawnDistance = 1000.0
 ```
+
+- `Config.Framework` is the Framework you're using, currently supports `qb` and `esx`. Work is being done to support `standalone`.
 
 - `Config.Cooldown` is the Cooldown (in minutes) for the Active Patrol to respawn after it's been killed or despawned.
 - `Config.DeathPercent` is the Percentage of the Active Patrol members that need to be killed before the Peds flee from the Player.
@@ -237,8 +241,15 @@ pedSettings = {
 - Join my [discord](https://discord.gg/tVA58nbBuk) and use the relative support channels.
 - Open a ticket and please have your Tebex Transation ID ready 🙂.
 
+## Known Issues
+
+- On latest FiveM build (6356) CPatrolNodeLimit has a lower cap (~50), throwing an error when trying to spawn peds. This is a FiveM issue and attempts to resolve have been made.
+
+**Solution:** Either downgrade to build 5848, reduce the amount of configured *walking* patrol peds or wait for a fix from the FiveM team.
+
 ## Changelog
 
+- v1.1.4 - Added Multi-Framework Support.
 - v1.1.3 - Added New Config Options `pedSettings.suffersCrits`, `pedSettings.diesWhenInjured` and `pedSettings.pathing.canRagdoll`. Small Code Cleanup.
 - v1.1.2 - Fixed an error on the server where the Ped didn't exist and had it's coords checked.
 - v1.1.1 - Added a table of Threads to handle Vehicle Patrols whilst having multiple clients nearby. This should fix drivers staying in the same place when the network owner leaves the area.

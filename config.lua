@@ -1,5 +1,6 @@
 Config = {}
 
+Config.Framework = 'qb' -- Framework to use // esx or qb (qb-core)
 Config.DebugMode = true -- Set true if you want to see debug messages in the console
 
 Config.Cooldown = 5 -- In minutes // Cooldown for the active patrol to respawn after it's been spawned
@@ -9,32 +10,33 @@ Config.SpawnDistance = 500.0 -- Distance from any patrol point to spawn the patr
 Config.DespawnDistance = 2000.0 -- Distance from any patrol point to despawn the patrol // 500 = 500 meters from any patrol point
 
 --------------------------- ADD YOUR RELEVANT EMS JOBS HERE // DO NOT TOUCH THE FIRST RESPONDER SECTION ---------------------------
-local QBCore = exports['qb-core']:GetCoreObject()
-Config.AuthorizedJobs = 
-{
+Config.AuthorizedJobs = {
     LEO = { -- this is for job checks which should only return true for police officers
-        Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true}, -- If you want to add more jobs, add them here // DO NOT REMOVE ANY EVEN IF YOU DO NOT USE THEM
+        Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true},
         Types = {['police'] = true, ['leo'] = true},
-        Check = function()
-            local PlyData = QBCore.Functions.GetPlayerData()
+        Check = function(PlyData)
+            PlyData = PlyData or GetPlayerData()
+            if not PlyData or (PlyData and (not PlyData.job or not PlyData.job.type))  then return false end
             local job, jobtype = PlyData.job.name, PlyData.job.type
             if Config.AuthorizedJobs.LEO.Jobs[job] or Config.AuthorizedJobs.LEO.Types[jobtype] then return true end
         end
     },
     EMS = { -- this if for job checks which should only return true for ems workers
-        Jobs = {['ambulance'] = true, ['fire'] = true}, -- If you want to add more jobs, add them here // DO NOT REMOVE ANY EVEN IF YOU DO NOT USE THEM
+        Jobs = {['ambulance'] = true, ['fire'] = true},
         Types = {['ambulance'] = true, ['fire'] = true, ['ems'] = true},
-        Check = function()
-            local PlyData = QBCore.Functions.GetPlayerData()
+        Check = function(PlyData)
+            PlyData = PlyData or GetPlayerData()
+            if not PlyData or (PlyData and (not PlyData.job or not PlyData.job.type))  then return false end
             local job, jobtype = PlyData.job.name, PlyData.job.type
             if Config.AuthorizedJobs.EMS.Jobs[job] or Config.AuthorizedJobs.EMS.Types[jobtype] then return true end
         end
     },
     FirstResponder = { -- do not touch, this is a combined job checking function for emergency services (police and ems)
-        Check = function()
-            local PlyData = QBCore.Functions.GetPlayerData()
+        Check = function(PlyData)
+            PlyData = PlyData or GetPlayerData()
+            if not PlyData or (PlyData and (not PlyData.job or not PlyData.job.type))  then return false end
             local job, jobtype = PlyData.job.name, PlyData.job.type
-            if Config.AuthorizedJobs.LEO.Check(jobtype, job) or Config.AuthorizedJobs.EMS.Check(jobtype, job) then return true end            
+            if Config.AuthorizedJobs.LEO.Check(PlyData, jobtype, job) or Config.AuthorizedJobs.EMS.Check(PlyData, jobtype, job) then return true end            
         end
     }
 }
