@@ -7,13 +7,15 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
 - Optimised code, resting resmon of 0.00ms and ~0.01ms whilst in use.
 - Configure Different Areas of Patrol
 - 23 Locations Pre-Configured // Add as many as you want!
-- Choose Between 3 Patrol Types, Walking, Driving and Guarding.
+- Choose Between 5 Patrol Types, Guarding, Walking, Driving, Flying and Boating.
 - Patrols are Highly Configurable, with Global Settings for Cooldown, Spawn/Despawn Distances, Death Percentage and more.
 - Patrols stay Tasked between Players and will go Dormant whilst no Players are nearby.
 - Peds are Configurable, with Unique Settings for each Ped, including Health, Armour, Weapons, Ammo and their Model.
 - Guards will Detect if They've Left their Guard Position and will Return to it.
 - Vehicles are Configurable, with Unique Settings for each Vehicle, including Health, Plate, Lock Type and their Model.
 - Vehicle Peds have the Ability to Control Mounted Turrets, and Vehicles have a Passenger Limit of 10 (if they can fit it!).
+- Patrols have the Ability to Determine if a Players' Job is a Threat to them, and will Respond Accordingly.
+- Patrols are Created Server-Side, and are Synced to all Players.
 
 ## Table of Contents
 
