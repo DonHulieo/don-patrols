@@ -6,7 +6,7 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
 
 - Optimised code, resting resmon of 0.00ms and ~0.01ms whilst in use.
 - Configure Different Areas of Patrol
-- 22 Locations Pre-Configured // Add as many as you want!
+- 23 Locations Pre-Configured // Add as many as you want!
 - Choose Between 3 Patrol Types, Walking, Driving and Guarding.
 - Patrols are Highly Configurable, with Global Settings for Cooldown, Spawn/Despawn Distances, Death Percentage and more.
 - Patrols stay Tasked between Players and will go Dormant whilst no Players are nearby.
