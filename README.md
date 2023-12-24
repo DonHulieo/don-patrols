@@ -22,6 +22,7 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
 - [don-patrols](#don-patrols)
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
+    - [Credits](#credits)
     - [Preview](#preview)
     - [Installation](#installation)
       - [Dependencies](#dependencies)
@@ -58,9 +59,18 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
 
 <!-- [ ] Add More Basic Drive Style Flags -->
 
+### Credits
+
+- [DurtyFrees' Data Dumps](https://github.com/DurtyFree/gta-v-data-dumps) for the various data dumps needed for this script.
+- [PlebMasters](https://forge.plebmasters.de/) for their updated ped, vehicle and weapon viewers.
+- [Vespura's Driving Style Calculator](https://vespura.com/fivem/drivingstyle/) for the inspiration for the Driving Style Calculator.
+- mrnewb, Mintz, beauflexx & others who provided testing and feedback.
+
 ### Preview
 
-- [don-patrols](https://www.youtube.com/watch?v=3FX-CfZ_oo8)
+- [Don Patrols YT Preview](https://www.youtube.com/watch?v=3FX-CfZ_oo8)
+- [v1.4 Boat Patrol](https://streamable.com/0lbmex)
+- [v1.4 Helicopter Patrol](https://streamable.com/a9jue7)
 
 ### Installation
 
@@ -78,7 +88,7 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
 - Download the latest version from your keymaster.
 - Extract the contents of the zip file into your resources folder, into a folder which starts after your framework or;
 - Ensure the script in your `server.cfg` after your framework.
-- Configure both the globals `Config.Framework` and `Config.DebugMode` before starting the script, to ensure correct startup and that debug are set to your liking.
+- Configure the global `Config.DebugMode` before starting the script, to ensure correct startup and that debug are set to your liking.
 
 ```lua
 Config.DebugMode = false
@@ -226,7 +236,7 @@ vehicle = {
 
 - `coords` vector3, the coordinates of the Patrol Position.
 - `speed` float, the speed of the Vehicle going to the Patrol Position.
-- `flags` integer, the Driving Style of the Vehicle going to the Patrol Position, you can calculate driving styles [here](https://vespura.com/fivem/drivingstyle/) and also find a list of flags [here](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/drivingStyleFlagValues.json).
+- `flags` integer, the Driving Style of the Vehicle going to the Patrol Position, you can calculate driving styles online [here](https://vespura.com/fivem/drivingstyle/) or in-game [here](https://github.com/DonHulieo/don-drivingstyle_calc/releases/tag/v1.0.0) and also find a list of flags [here](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/drivingStyleFlagValues.json).
 
 *Some Driving Styles:*
 `447` - Will obey all traffic laws, and act like a normal civilian vehicle.
@@ -674,6 +684,7 @@ Relationships have 6 Levels, 0 for Companion, 1 for Respect, 2 for Like, 3 for N
 
 ### Changelog
 
+- v1.4.1 - Changed to Use Promises in Version Checker, Updated README & Added New Preview Links.
 - v1.4.0 - Created Version Checker & Fix Bug Related to Reseting Patrols.
 - v1.3.9 - Add Final Cayo Locations, Fix Bug with Vehicle Patrols Passengers not being able to Find their Seat when other Vehicles were Active in the Same Patrol.
 - v1.3.8 - Improve Performance of ReTasking Event, Updates to Relationship Syncing & Add NextPoint in route check when re-tasking.
