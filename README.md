@@ -684,6 +684,7 @@ Relationships have 6 Levels, 0 for Companion, 1 for Respect, 2 for Like, 3 for N
 
 ### Changelog
 
+- v1.4.2 - Fixed Issue Where Guarding and Walking Patrols Wouldn't Face the Correct Heading, Fixed issue with Patrols not starting w/o a restart on ESX, Ensure Guarding Patrols Return to their Original Position after being Retasked & Fixed Issue Where Guards w/ Firearms would get Stuck Between Attacking and Guarding.
 - v1.4.1 - Changed to Use Promises in Version Checker, Updated README & Added New Preview Links.
 - v1.4.0 - Created Version Checker & Fix Bug Related to Reseting Patrols.
 - v1.3.9 - Add Final Cayo Locations, Fix Bug with Vehicle Patrols Passengers not being able to Find their Seat when other Vehicles were Active in the Same Patrol.

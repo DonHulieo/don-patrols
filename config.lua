@@ -1,6 +1,6 @@
 Config = {}
 
-Config.DebugMode = true -- Set true if you want to see debug messages in the console
+Config.DebugMode = false -- Set true if you want to see debug messages in the console
 
 Config.Cooldown = 15 -- In minutes // Cooldown for the active patrol to respawn after it's been spawned
 Config.DeathPercent = 80 -- Percentage of patrol members that can die before the patrol is removed // 75 = 75% of the patrol members can die before the patrol is removed
