@@ -11,6 +11,7 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
 - Patrols are Highly Configurable, with Global Settings for Cooldown, Spawn/Despawn Distances, Death Percentage and more.
 - Patrols stay Tasked between Players and will go Dormant whilst no Players are nearby.
 - Peds are Configurable, with Unique Settings for each Ped, including Health, Armour, Weapons, Ammo and their Model.
+- Ability to Loot the Patrol Peds, and Set Custom Loot Tables for each Ped.
 - Guards will Detect if They've Left their Guard Position and will Return to it.
 - Vehicles are Configurable, with Unique Settings for each Vehicle, including Health, Plate, Lock Type and their Model.
 - Vehicle Peds have the Ability to Control Mounted Turrets, and Vehicles have a Passenger Limit of 10 (if they can fit it!).
@@ -29,6 +30,7 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
       - [Initial Setup](#initial-setup)
     - [Configuration](#configuration)
       - [Globals](#globals)
+      - [UI Settings](#ui-settings)
       - [Creating a Location](#creating-a-location)
       - [Routes](#routes)
         - [Adding a Guard](#adding-a-guard)
@@ -54,6 +56,8 @@ Configurable Ped Patrols for FiveM! This is a paid script, available on my [Tebe
         - [Relationship Settings](#relationship-settings)
       - [Known Issues](#known-issues)
         - [Patrol Limits](#patrol-limits)
+    - [Copyright](#copyright)
+    - [TOS](#tos)
     - [Support](#support)
     - [Changelog](#changelog)
 
@@ -117,6 +121,30 @@ Config.DespawnDistance = 1000.0
 - `Config.DespawnDistance` float, the distance from any coordinate in a configured patrol area that triggers the patrol to despawn.
 
 **Note:** Entities in FiveM (and GTA as a whole) have scope; that is, a distance of which players need to be within to know of it's existence. By default this is 424 units from the entity, `Config.SpawnDistance` will allow players to create entities outside of this scope, so this should be used with caution as it can cause performance issues and unexpected behaviour. Read more about scopes [here](https://docs.fivem.net/docs/scripting-reference/onesync/#whats-culling).
+
+#### UI Settings
+
+```lua
+Config.UI = {
+  uiType = 'drawtext',
+  label = 'Search',
+  icon = 'fas fa-search',
+  ['Items'] = {
+    notify = 'framework',
+    title = 'Item Found',
+    text = 'You found %s x %s',
+    images = 'https://cfx-nui-qb-inventory/html/images/'
+  },
+}
+```
+
+- `Config.UI.uiType` string, the type of UI to use for the search, can be `qb-target`, `ox-target`, `drawtext` or `helptext`.
+- `Config.UI.label` string, the label to display on the UI.
+- `Config.UI.icon` string, the icon to display on the UI (only used for `qb-target` and `ox-target`).
+- `Config.UI['Items'].notify` string|boolean, whether to notify the player when they find an item, can be `native`, `framework` or `false`.
+- `Config.UI['Items'].title` string, the title of the notification (only used if `Config.UI['Items'].notify` is set to `native`).
+- `Config.UI['Items'].text` string, the text of the notification, `%s` will be replaced with the item name and amount (only used if `Config.UI['Items'].notify` is set to `native`).
+- `Config.UI['Items'].images` string, the path to the images folder for the notification (only used if `Config.UI['Items'].notify` is set to `native`).
 
 #### Creating a Location
 
@@ -277,7 +305,8 @@ vehicle = {
     armour = 100,
     ammo = 250,
     brandish = true,
-    -- flags = {}
+    -- flags = {},
+    ['Loot'] = {...}
 },
 ```
 
@@ -288,6 +317,9 @@ vehicle = {
 - `ammo` integer, setting the ammo of the ped. This is only used if `useDiminishingAmmo` is set to `true` in the `Base` table of the `Settings` table.
 - `brandish` boolean, whether the ped will brandish their weapon when spawned. Default is false, set to true to enable.
 - `flags` integer[], array of flags to uniquely set on the ped. This is by default used by vehicle peds and care should be taken that the flags don't conflict with the global settings. A full list of flags can be found [here](https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags).
+- `['Loot']` nil|boolean|table{item: string|string[], amount: integer|integer[]}
+- `['Loot'].item` string|string[], the item to give the player when the ped is looted. If a string, it will give the item and configured amount. If a table, it will give a random item from the table and configured amount.
+- `['Loot'].amount` integer|integer[], the amount of the item to give the player when the ped is looted. If an integer, it will give the item and configured amount. If a table, it will give a random amount between the two numbers.
 
 ##### Range Settings
 
@@ -677,14 +709,23 @@ Relationships have 6 Levels, 0 for Companion, 1 for Respect, 2 for Like, 3 for N
 
 - On FiveM build (6356) CPatrolNodeLimit has a lower cap (~50), throwing an error when trying to create more patrols than the ascribed limit. This issue has been resolved without the need to increase Game Pool sizes, and use's Sequences to replace TaskPatrol, thus alleviating the issue.
 
+### Copyright
+
+Copyright © 2022, Hulieo Anderson
+
+### TOS
+
+[Terms of Service](https://dons-developments.tebex.io/terms)
+
 ### Support
 
-- Join my [discord](https://discord.gg/tVA58nbBuk) and use the relative support channels.
+- Join my [discord](https://discord.gg/tVA58nbBuk).
 - Open a ticket and please have your Tebex Transation ID ready 🙂.
 
 ### Changelog
 
-- v1.4.2 - Fixed Issue Where Guarding and Walking Patrols Wouldn't Face the Correct Heading, Fixed issue with Patrols not starting w/o a restart on ESX, Ensure Guarding Patrols Return to their Original Position after being Retasked & Fixed Issue Where Guards w/ Firearms would get Stuck Between Attacking and Guarding.
+- v1.4.3 - Various linting Updates, Added New Loot Ped Feature and Custom Loot Tables per Ped and More Fixes to Patrols Starting on ESX.
+- v1.4.2 - Fixed Issue Where Guarding and Walking Patrols Wouldn't Face the Correct Heading, Fixed issue with Patrols not starting w/o a restart on ESX, Ensure Guarding Patrols Return to their Original Position after being Retasked & Fixed Issue Where Guards w/o Firearms would get Stuck Between Attacking and Guarding.
 - v1.4.1 - Changed to Use Promises in Version Checker, Updated README & Added New Preview Links.
 - v1.4.0 - Created Version Checker & Fix Bug Related to Reseting Patrols.
 - v1.3.9 - Add Final Cayo Locations, Fix Bug with Vehicle Patrols Passengers not being able to Find their Seat when other Vehicles were Active in the Same Patrol.

@@ -9,6 +9,19 @@ Config.DeleteOnReset = false -- Set true if you want the patrol to be deleted wh
 Config.SpawnDistance = 500.0 -- Distance from any patrol point to spawn the patrol // 250 = 250 meters from any patrol point
 Config.DespawnDistance = 1000.0 -- Distance from any patrol point to despawn the patrol // 500 = 500 meters from any patrol point
 
+Config.UI = {
+  uiType = 'qb-target', -- Set to 'qb-target' for QBCore target, 'ox-target' for Ox target, 'drawtext' for Native Drawtext or 'helptext' for Native Helptext
+  label = 'Search', -- Label for the target or Text message
+  icon = 'fas fa-search', -- Icon for the target
+  key = 38, -- Key to press to search the ped if not using a target system | https://docs.fivem.net/docs/game-references/controls/#controls
+  ['Items'] = {
+    notify = 'framework', -- Set to 'native', 'framework' or false
+    title = 'Item Found', -- Title for the notification, only used if notify is set to 'native'
+    text = 'You found %s x %s', -- Text for the notification, only used if notify is set to 'native'
+    images = 'https://cfx-nui-qb-inventory/html/images/' -- Image for the notification, only used if notify is set to 'native'
+  },
+}
+
 ------------------------------------------------------------------------------------------------------------------------------
 
 Config.Locations = {
@@ -31,7 +44,11 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 750, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095&#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095&#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0, -- The range players can see the ped from
@@ -49,7 +66,11 @@ Config.Locations = {
             armour = 50,
             ammo = 750,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -200,7 +221,11 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 750, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0, -- The range players can see the ped from
@@ -218,7 +243,11 @@ Config.Locations = {
             armour = 50,
             ammo = 750,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -383,7 +412,11 @@ Config.Locations = {
             armour = 100, -- Range is 0-100
             ammo = 750, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0, -- The range players can see the ped from
@@ -404,7 +437,11 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = false,
-            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+            ['Loot'] = {
+              {item = 'weapon_combatpistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 500.0,
@@ -570,7 +607,11 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 750, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0, -- The range players can see the ped from
@@ -588,7 +629,11 @@ Config.Locations = {
             armour = 50,
             ammo = 750,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -606,7 +651,11 @@ Config.Locations = {
             armour = 50,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -624,7 +673,11 @@ Config.Locations = {
             armour = 50,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -777,7 +830,11 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 750, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0, -- The range players can see the ped from
@@ -795,7 +852,11 @@ Config.Locations = {
             armour = 50,
             ammo = 250,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_combatpistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -813,7 +874,11 @@ Config.Locations = {
             armour = 100,
             ammo = 150,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_sniperrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 500.0,
@@ -831,7 +896,11 @@ Config.Locations = {
             armour = 100,
             ammo = 150,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_sniperrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 500.0,
@@ -1006,7 +1075,11 @@ Config.Locations = {
             armour = 100, -- Range is 0-100
             ammo = 150, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_sniperrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 500.0, -- The range players can see the ped from
@@ -1027,7 +1100,11 @@ Config.Locations = {
             armour = 50,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1045,7 +1122,11 @@ Config.Locations = {
             armour = 50,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1063,7 +1144,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1085,7 +1170,11 @@ Config.Locations = {
               armour = 50,
               ammo = 500,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+              ['Loot'] = {
+                {item = 'weapon_carbinerifle', amount = 1},
+                {item = 'rifle_ammo', amount = {10, 15}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -1103,7 +1192,11 @@ Config.Locations = {
               armour = 0,
               ammo = 250,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_combatpistol', amount = 1},
+                {item = 'pistol_ammo', amount = {15, 20}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -1289,7 +1382,11 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 500, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_specialcarbine', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 300.0, -- The range players can see the ped from
@@ -1307,7 +1404,11 @@ Config.Locations = {
             armour = 100,
             ammo = 150,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_sniperrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 500.0,
@@ -1328,7 +1429,11 @@ Config.Locations = {
             armour = 50,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1346,7 +1451,11 @@ Config.Locations = {
             armour = 50,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1364,7 +1473,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_marksmanrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1386,7 +1499,11 @@ Config.Locations = {
               armour = 50,
               ammo = 500,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+              ['Loot'] = {
+                {item = 'weapon_carbinerifle', amount = 1},
+                {item = 'rifle_ammo', amount = {10, 15}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -1404,7 +1521,11 @@ Config.Locations = {
               armour = 0,
               ammo = 250,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_combatpistol', amount = 1},
+                {item = 'pistol_ammo', amount = {15, 20}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -1573,7 +1694,11 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 500, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 500.0, -- The range players can see the ped from
@@ -1748,7 +1873,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 0, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_bottle', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -1766,7 +1895,11 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_knife', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -1784,7 +1917,11 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_hatchet', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -1805,7 +1942,12 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_doubleaction', amount = 1},
+              {item = 'shotgun_ammo', amount = {10, 15}},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -1979,7 +2121,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 0, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_bottle', amount = 1},
+              {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -1997,7 +2143,12 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_sawnoffshotgun', amount = 1},
+              {item = 'shotgun_ammo', amount = {10, 15}},
+              {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -2018,7 +2169,12 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_pistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}},
+              {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -2036,7 +2192,12 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_pistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}},
+              {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -2058,7 +2219,11 @@ Config.Locations = {
               armour = 0,
               ammo = 0,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 366, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+              flags = {29, 32, 116, 151, 229, 241, 250, 366, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+              ['Loot'] = {
+                {item = 'weapon_knife', amount = 1},
+                {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -2076,7 +2241,12 @@ Config.Locations = {
               armour = 0,
               ammo = 250,
               brandish = true,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_dbshotgun', amount = 1},
+                {item = 'shotgun_ammo', amount = {10, 15}},
+                {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -2264,7 +2434,12 @@ Config.Locations = {
             armour = 50, -- Range is 0-100
             ammo = 0, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = true, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_flashlight', amount = 1},
+              {item = 'shotgun_ammo', amount = {10, 15}},
+              {item = {'cokebaggy', 'crack_baggy', 'oxy', 'meth'}, amount = {1, 5}}
+            }
           },
           ['Ranges'] = {
             lod = 150.0,
@@ -2282,7 +2457,11 @@ Config.Locations = {
             armour = 50,
             ammo = 250,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_pistol', amount = 1},
+              {item = 'pistol_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 150.0,
@@ -2303,7 +2482,11 @@ Config.Locations = {
             armour = 50,
             ammo = 250,
             brandish = false,
-            flags = {29, 32, 116, 151, 229, 241, 250, 366, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+            flags = {29, 32, 116, 151, 229, 241, 250, 366, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+            ['Loot'] = {
+              {item = 'weapon_pistol', amount = 1},
+              {item = 'pistol_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -2491,7 +2674,10 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 0, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_hammer', amount = 1}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -2509,7 +2695,10 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_golfclub', amount = 1}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -2525,12 +2714,13 @@ Config.Locations = {
         {
           ['Base'] = {
             model = 'g_m_y_pologoon_01',
-            weapon = 'WEAPON_UNARMED',
+            weapon = 'weapon_unarmed',
             health = 150,
             armour = 0,
             ammo = 250,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = false
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -2548,7 +2738,11 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_pistol', amount = 1},
+              {item = 'pistol_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -2569,7 +2763,11 @@ Config.Locations = {
             armour = 0,
             ammo = 500,
             brandish = false,
-            flags = {29, 32, 116, 151, 229, 241, 250, 366, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+            flags = {29, 32, 116, 151, 229, 241, 250, 366, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+            ['Loot'] = {
+              {item = 'weapon_microsmg', amount = 1},
+              {item = 'smg_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -2733,7 +2931,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 250, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_gadgetpistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -2751,7 +2953,11 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_snspistol_mk2', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -2769,7 +2975,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -2927,7 +3137,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 250, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_snspistol_mk2', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -2948,7 +3162,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3119,7 +3337,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 250, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_snspistol_mk2', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -3137,7 +3359,11 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_machete', amount = 1},
+              {item = 'coke_small_brick', amount = {1, 2}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -3155,7 +3381,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -3173,7 +3403,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -3194,7 +3428,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3216,7 +3454,11 @@ Config.Locations = {
               armour = 100,
               ammo = 500,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+              ['Loot'] = {
+                {item = 'weapon_carbinerifle', amount = 1},
+                {item = 'rifle_ammo', amount = {10, 15}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -3234,7 +3476,11 @@ Config.Locations = {
               armour = 100,
               ammo = 250,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_combatpistol', amount = 1},
+                {item = 'pistol_ammo', amount = {15, 20}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -3406,7 +3652,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 250, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_gadgetpistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -3424,7 +3674,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3445,7 +3699,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3618,7 +3876,10 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 0, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_hammer', amount = 1}
+            }
           },
           ['Ranges'] = {
             lod = 250.0, -- The range players can see the ped from
@@ -3636,7 +3897,11 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_machete', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3654,7 +3919,11 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_machete', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3675,7 +3944,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'rifle_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3696,7 +3969,11 @@ Config.Locations = {
             armour = 0,
             ammo = 250,
             brandish = false,
-            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+            ['Loot'] = {
+              {item = 'weapon_pistolxm3', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -3867,7 +4144,11 @@ Config.Locations = {
             armour = 100, -- Range is 0-100
             ammo = 500, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -3888,7 +4169,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_heavysniper', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 1000.0,
@@ -4056,7 +4341,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 0, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_machete', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -4074,7 +4363,11 @@ Config.Locations = {
             armour = 0,
             ammo = 0,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_machete', amount = 1},
+              {item = {'weed_whitewidow', 'weed_skunk', 'weed_purplehaze', 'weed_ogkush', 'weed_amnesia', 'weed_ak47'}, amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -4095,7 +4388,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -4113,7 +4410,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -4131,7 +4432,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -4294,7 +4599,11 @@ Config.Locations = {
             armour = 100, -- Range is 0-100
             ammo = 500, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -4312,7 +4621,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -4334,7 +4647,11 @@ Config.Locations = {
               armour = 100,
               ammo = 500,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398} -- This has it's best use for vehicles, as no vehicle flags are set by default
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}, -- This has it's best use for vehicles, as no vehicle flags are set by default
+              ['Loot'] = {
+                {item = 'weapon_carbinerifle', amount = 1},
+                {item = 'rifle_ammo', amount = {10, 15}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -4352,7 +4669,11 @@ Config.Locations = {
               armour = 100,
               ammo = 250,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_combatpistol', amount = 1},
+                {item = 'pistol_ammo', amount = {15, 20}}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -4370,7 +4691,10 @@ Config.Locations = {
               armour = 100,
               ammo = 0,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_dagger', amount = 1}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -4388,7 +4712,10 @@ Config.Locations = {
               armour = 100,
               ammo = 0,
               brandish = false,
-              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+              flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+              ['Loot'] = {
+                {item = 'weapon_switchblade', amount = 1}
+              }
             },
             ['Ranges'] = {
               lod = 250.0,
@@ -4407,7 +4734,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = false,
-            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398}
+            flags = {29, 32, 116, 151, 229, 241, 250, 184, 391, 398},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -4587,7 +4918,11 @@ Config.Locations = {
             armour = 0, -- Range is 0-100
             ammo = 250, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_gadgetpistol', amount = 1},
+              {item = 'pistol_ammo', amount = {15, 20}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -4608,7 +4943,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -4766,7 +5105,11 @@ Config.Locations = {
             armour = 100, -- Range is 0-100
             ammo = 500, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -4784,7 +5127,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
@@ -4805,7 +5152,11 @@ Config.Locations = {
             armour = 100,
             ammo = 1000,
             brandish = true,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_militaryrifle', amount = 1},
+              {item = 'snp_ammo', amount = {5, 10}}
+            }
           },
           ['Ranges'] = {
             lod = 250.0,
@@ -4954,7 +5305,11 @@ Config.Locations = {
             armour = 100, -- Range is 0-100
             ammo = 500, -- Ped only uses ammo if useDiminishingAmmo is true
             brandish = false, -- Set to true if you want the ped to brandish their weapon when idle
-            -- flags = {} -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            -- flags = {}, -- Can be used to set certain flags uniquely on peds, be careful however as most global patrol settings already utilise these below | https://alexguirre.github.io/rage-parser-dumps/dump.html?game=gta5&build=3095#ePedConfigFlags
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0, -- The range players can see the ped from
@@ -4972,7 +5327,11 @@ Config.Locations = {
             armour = 100,
             ammo = 500,
             brandish = false,
-            -- flags = {}
+            -- flags = {},
+            ['Loot'] = {
+              {item = 'weapon_carbinerifle', amount = 1},
+              {item = 'rifle_ammo', amount = {10, 15}}
+            }
           },
           ['Ranges'] = {
             lod = 200.0,
