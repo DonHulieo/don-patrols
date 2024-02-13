@@ -724,6 +724,7 @@ Copyright © 2022, Hulieo Anderson
 
 ### Changelog
 
+- v1.4.4 - Update Lua Language Server comments & Fix Server Console Error Spam due to Uknown Entity.
 - v1.4.3 - Various linting Updates, Added New Loot Ped Feature and Custom Loot Tables per Ped and More Fixes to Patrols Starting on ESX.
 - v1.4.2 - Fixed Issue Where Guarding and Walking Patrols Wouldn't Face the Correct Heading, Fixed issue with Patrols not starting w/o a restart on ESX, Ensure Guarding Patrols Return to their Original Position after being Retasked & Fixed Issue Where Guards w/o Firearms would get Stuck Between Attacking and Guarding.
 - v1.4.1 - Changed to Use Promises in Version Checker, Updated README & Added New Preview Links.
